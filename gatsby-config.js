@@ -6,5 +6,6 @@
 
 module.exports = {
   /* Your site config here */
+  pathPrefix: "/DashGL-Pages",
   plugins: [`gatsby-plugin-fontawesome-css`],
 }
