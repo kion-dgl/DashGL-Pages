@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://gatsby-starter-hello-world/./src/pages/404.js"],"names":["Home"],"mappings":"wMAEe,SAASA,IACtB,OAAO","file":"component---src-pages-404-js-ad3e5cc511df8d493e4f.js","sourcesContent":["import React from \"react\"\n\nexport default function Home() {\n  return <div>This is my 404 page!!!</div>\n}\n"],"sourceRoot":""}

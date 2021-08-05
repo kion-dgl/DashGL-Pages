@@ -5,7 +5,7 @@ export default function Navbar() {
 
 	return (
 
-<nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor : "#1f5756" }}>
+<nav className="navbar navbar-expand-lg py-2 navbar-dark" style={{ backgroundColor : "#1f5756" }}>
 
   <div className="container">
     <a className="navbar-brand me-2 d-flex align-items-center" href="https://mdbgo.com/">
@@ -20,7 +20,7 @@ export default function Navbar() {
     <div className="collapse navbar-collapse" id="navbarButtonsExample">
 
 	  <ul className="me-auto"></ul>
-	
+
       <div className="navbar-nav d-flex align-items-center">
       	<Link to="/" className="nav-link active">Home</Link>
       	<Link to="/tutorials" className="nav-link active">Tutorials</Link>
@@ -30,10 +30,10 @@ export default function Navbar() {
       	<Link to="/post" className="nav-link active">Post</Link>
       	<Link to="/format" className="nav-link active">Format</Link>
       </div>
-      
+
     </div>
   </div>
 </nav>
 	)
-	
+
 }

@@ -1,33 +1,38 @@
 import React from "react"
 import { FaTwitter, FaPhone, FaGithub, FaYoutube } from "react-icons/fa";
 
+function SocialMedia() {
+
+	return (
+		<section className="p-4 border-bottom">
+		  <div className="container d-flex justify-content-center justify-content-lg-between">
+		  <div className="me-5 d-none d-lg-block">
+			<span>Get connected with us on social networks:</span>
+		  </div>
+
+		  <div>
+			<a href="" className="me-4 text-reset">
+			  <FaTwitter/>
+			</a>
+			<a href="" className="me-4 text-reset">
+			  <FaYoutube/>
+			</a>
+			<a href="" className="me-4 text-reset">
+			  <FaGithub />
+			</a>
+		  </div>
+
+		  </div>
+		</section>
+	)
+
+}
+
 export default function Footer() {
 
 	return (
 
-		<footer className="text-center text-lg-start bg-light text-muted mt-5">
-
-		  <section className="p-4 border-bottom">
-			<div className="container d-flex justify-content-center justify-content-lg-between">
-		    <div className="me-5 d-none d-lg-block">
-		      <span>Get connected with us on social networks:</span>
-		    </div>
-
-		    <div>
-		      <a href="" className="me-4 text-reset">
-		        <FaTwitter/>
-		      </a>
-		      <a href="" className="me-4 text-reset">
-		        <FaYoutube/>
-		      </a>
-		      <a href="" className="me-4 text-reset">
-		        <FaGithub />
-		      </a>
-		    </div>
-
-			</div>
-		  </section>
-
+		<footer className="text-center text-lg-start bg-light text-muted border-top pt-3 mt-5">
 
 		  <section className="">
 		    <div className="container text-center text-md-start mt-5">
@@ -40,7 +45,7 @@ export default function Footer() {
 		            License - BSD0
 		          </h6>
 		          <p>
-		           
+
 					Permission to use, copy, modify, and/or distribute these examples for any
 					purpose with or without fee is hereby granted.
 		          </p>
@@ -101,9 +106,11 @@ export default function Footer() {
 
 		    </div>
 		  </section>
-		  <div className="text-center p-4" style={{ backgroundColor : "rgba(0, 0, 0, 0.05);" }}>
-		     Copyright © 2016 - 2021 DashGL.com
+
+		  <div className="text-center p-4" style={{ backgroundColor : "rgba(0, 0, 0, 0.05)" }}>
+		     Copyright © 2016 - 2021 DashGL Project
 		  </div>
+
 		</footer>
 	)
 }

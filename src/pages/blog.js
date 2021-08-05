@@ -6,7 +6,7 @@ function Sidebar() {
 
 	return (
 		<div className="col-md-3 mb-4">
-		  <section className="sticky-top" style={{ top : "60px" }}>
+		  <section>
 			<section className="text-center border-bottom pb-4 mb-4">
 			  <div className="bg-image hover-overlay ripple mb-4">
 				<img
@@ -36,32 +36,87 @@ function Sidebar() {
 
 }
 
-function MyLesson ( props ) {
+
+function BlogCard() {
+
+	return (
+		<div className="col-lg-4 col-md-12 mb-4">
+		  <div className="card">
+			<div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+			  <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="img-fluid" />
+			  <a href="#!">
+				<div className="mask" style={{ backgroundColor : "rgba(251, 251, 251, 0.15)" }}></div>
+			  </a>
+			</div>
+			<div className="card-body">
+			  <h5 className="card-title">Post title</h5>
+			  <p className="card-text">
+				Some quick example text to build on the card title and make up the bulk of the
+				card's content.
+			  </p>
+			  <a href="#!" className="btn btn-primary">Read</a>
+			</div>
+		  </div>
+		</div>
+	)
+
+}
+
+function BlogRow() {
 
 	return (
 		<div className="row">
-             <div className="col-md-4 mb-4">
-                <div className="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
-                  <img src={ props.img } class='img-fluid'/>
-                  <a href="#!">
-                    <div className="mask" style={{backgroundColor: "rgba(251, 251, 251, 0.15)" }}></div>
-                  </a>
-                </div>
-              </div>
+			<BlogCard/>
+			<BlogCard/>
+			<BlogCard/>
+		</div>
 
-              <div className="col-md-8 mb-4">
-                <h5> { props.name } </h5>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
-                  necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam
-                  minus ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos
-                  magni.
-                </p>
-                <button type="button" className="btn btn-primary">Read</button>
-              </div>
-            </div>
+	)
+}
+
+function BlogNav() {
+
+	return (
+		<nav className="navbar navbar-light bg-light border-bottom">
+			<div className="container container-fluid">
+				<form className="d-flex align-items-center">
+					<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+					<button className="btn btn-outline-success" type="submit">Search</button>
+    			</form>
+				<ul className="nav nav-pills">
+					<li className="nav-item"><a href="#" className="nav-link active" aria-current="page">All</a></li>
+					<li className="nav-item"><a href="#" className="nav-link">Updates</a></li>
+					<li className="nav-item"><a href="#" className="nav-link">Tool</a></li>
+					<li className="nav-item"><a href="#" className="nav-link">Resource</a></li>
+					<li className="nav-item"><a href="#" className="nav-link">About</a></li>
+				</ul>
+			</div>
+		</nav>
 	)
 
+}
+
+function Pagination() {
+
+	return (
+		<div className='row'>
+			<nav className="mt-4 container" aria-label="...">
+			  <ul className="pagination pagination-circle pagination-lg justify-content-center">
+				<li className="page-item">
+				  <a className="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+				</li>
+				<li className="page-item"><a className="page-link" href="#">1</a></li>
+				<li className="page-item active" aria-current="page">
+				  <a className="page-link" href="#">2 <span className="sr-only">(current)</span></a>
+				</li>
+				<li className="page-item"><a className="page-link" href="#">3</a></li>
+				<li className="page-item">
+				  <a className="page-link" href="#">Next</a>
+				</li>
+			  </ul>
+			</nav>
+		</div>
+	)
 }
 
 export default function Blog() {
@@ -69,40 +124,17 @@ export default function Blog() {
 	return (
 		<>
 			<Navbar/>
+			<BlogNav/>
+			<main className="my-5">
+				<div className="container">
 
-  <main className="my-5">
-    <div className="container">
-      <div className="row">
-        <div className="col-md-9 mb-4">
-          <section>
-          	<MyLesson name='Redesign 1' img='https://gtk.dashgl.com/img/bricks_017.png'/>
-          	<MyLesson name='Redesign 2' img='https://gtk.dashgl.com/img/bricks_001.png'/>
-          	<MyLesson name='Draw a Triangle' img='https://gtk.dashgl.com/img/bricks_002.png'/>
-          	<MyLesson name='Separate Shaders' img='https://gtk.dashgl.com/img/bricks_003.png'/>
-          	<MyLesson name='Shader Program' img='https://gtk.dashgl.com/img/bricks_004.png'/>
-          	<MyLesson name='Orthagonal Coordinates' img='https://gtk.dashgl.com/img/bricks_005.png'/>
-          	<MyLesson name='Draw a Ball' img='https://gtk.dashgl.com/img/bricks_006.png'/>
-          	<MyLesson name='Set Ball Position' img='https://gtk.dashgl.com/img/bricks_007.png'/>
-          	<MyLesson name='Move a Ball' img='https://gtk.dashgl.com/img/bricks_008.png'/>
-          	<MyLesson name='Bounce a Ball' img='https://gtk.dashgl.com/img/bricks_009.png'/>
-          	<MyLesson name='Define Ball Struct' img='https://gtk.dashgl.com/img/bricks_010.png'/>
-          	<MyLesson name='Draw a Paddle' img='https://gtk.dashgl.com/img/bricks_011.png'/>
-          	<MyLesson name='Paddle Uniform Color' img='https://gtk.dashgl.com/img/bricks_012.png'/>
-          	<MyLesson name='Keydown Callbacks' img='https://gtk.dashgl.com/img/bricks_013.png'/>
-          	<MyLesson name='Paddle Hit Detection' img='https://gtk.dashgl.com/img/bricks_014.png'/>
-          	<MyLesson name='Draw Row of Bricks' img='https://gtk.dashgl.com/img/bricks_015.png'/>
-          	<MyLesson name='Draw Grid of Bricks' img='https://gtk.dashgl.com/img/bricks_016.png'/>
-          	<MyLesson name='Break Some Bricks' img='https://gtk.dashgl.com/img/bricks_017.png'/>
-          </section>
-        </div>
+					<BlogRow/>
+					<BlogRow/>
+					<BlogRow/>
 
-		<Sidebar/>
-
-      </div>
-
-      </div>
-  </main>
-
+					<Pagination/>
+      			</div>
+			</main>
 			<Footer/>
 		</>
 	)
