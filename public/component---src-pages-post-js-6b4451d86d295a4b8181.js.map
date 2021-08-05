@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://gatsby-starter-hello-world/./src/pages/post.js"],"names":["Home"],"mappings":"wMAEe,SAASA,IACtB,OAAO","file":"component---src-pages-post-js-6b4451d86d295a4b8181.js","sourcesContent":["import React from \"react\"\n\nexport default function Home() {\n  return <div>This is the post page!!</div>\n}\n"],"sourceRoot":""}
