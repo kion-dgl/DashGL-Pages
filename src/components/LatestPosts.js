@@ -4,7 +4,7 @@ export default function LatestPosts() {
 
 	return (
 		<section>
-  	  	<div class='container'>
+  	  	<div className='container'>
           <h4 className="mb-2 mt-4"><strong>Latest posts</strong></h4>
 
           <div className="row">

@@ -140,7 +140,7 @@ export default function Formats() {
 		</div>
 		<div className='container'>
 			<h4 className='mt-4 mb-2'>Free Assets</h4>
-			<div class='row g-5'>
+			<div className='row g-5'>
 				<HCard/>
 				<HCard/>
 			</div>

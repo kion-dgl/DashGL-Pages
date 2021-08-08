@@ -9,7 +9,7 @@ function MyLesson ( props ) {
 		<div className="row">
              <div className="col-md-4 mb-4">
                 <div className="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
-                  <img src={ props.img } class='img-fluid'/>
+                  <img src={ props.img } className='img-fluid'/>
                   <a href="#!">
                     <div className="mask" style={{backgroundColor: "rgba(251, 251, 251, 0.15)" }}></div>
                   </a>

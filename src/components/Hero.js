@@ -1,4 +1,5 @@
 import React from "react"
+import { StaticImage } from "gatsby-plugin-image"
 
 export default function Hero() {
 
@@ -20,7 +21,7 @@ export default function Hero() {
 		<div className="container py-1">
 		    <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
 		      <div className="col-10 col-sm-8 col-lg-6">
-		        <img src="/dashie_indexed.png" className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="700" height="500" />
+		        <img src="/dashie_indexed.png" className="d-block mx-lg-auto img-fluid" alt="DashGL Gero Image Mascot" placeholder="blurred" layout="fixed" width={ 700 } height={ 500 } />
 		      </div>
 		      <div className="col-lg-6">
 		        <h1 className="display-5 fw-bold lh-1 mb-3">DashGL</h1>

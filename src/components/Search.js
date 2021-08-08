@@ -28,7 +28,7 @@ function TutorialCard() {
 	return (
 	  <div className="col">
     <div className="card h-100">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <svg className="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
       <div className="card-body">
         <h5 className="card-title">Card title</h5>
         <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -56,7 +56,7 @@ export default function Search() {
 						
 						<div className='col-sm-12 col-md-12 col-lg-10'>
 						
-							<div class='row pt-3 row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 g-md-2 g-sm-1'>
+							<div className='row pt-3 row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 g-md-2 g-sm-1'>
 							
 								<TutorialCard/>
 								<TutorialCard/>

@@ -4,7 +4,7 @@ export default function FeaturedPost() {
 
 	return (
 		<section>
-		<div class='container'>
+		<div className='container'>
 			<h4 className="mb-5"><strong>Featured post</strong></h4>
           <div className="row">
             <div className="col-md-6 gx-5 mb-4">

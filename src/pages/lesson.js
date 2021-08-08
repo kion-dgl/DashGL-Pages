@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from 'gatsby'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { FaTwitter, FaFacebook, FaComments } from "react-icons/fa";
@@ -244,12 +245,12 @@ function Sidebar() {
 	return (
 		<div className="col-md-3 mb-4">
 			<section>
-				<ol class="list-group list-group-numbered">
+				<ol className="list-group list-group-numbered">
 		  		{TableOfContents.map( (lesson, index) => {
 					if(index !== 3) {
-						return <li class="list-group-item">{ lesson }</li>
+						return <li key={lesson} className="list-group-item">{ lesson }</li>
 					} else {
-						return <li class="list-group-item active">{ lesson }</li>
+						return <li key={lesson} className="list-group-item active">{ lesson }</li>
 					}
 				})}
 				</ol>
@@ -260,7 +261,9 @@ function Sidebar() {
 }
 
 
-function Post() {
+function Post( { data } ) {
+
+	console.log( data.html );
 
 	return (
   <main className="mt-4 mb-5">
@@ -292,8 +295,10 @@ function Post() {
               </div>
             </div>
           </section>
-
-         <PostContent/>
+			
+			<section>Before Post Content</section>
+			<div dangerouslySetInnerHTML={{ __html : data.html }} />
+			<section>After Post Content</section>
 
           <section className="border-bottom border-top pt-3 mb-3">
             <p className="text-center"><strong>Comments: 3</strong></p>
@@ -366,13 +371,6 @@ function Post() {
                 <label className="form-label" htmlFor="form4Example3">Text</label>
               </div>
 
-              <div className="form-check d-flex justify-content-center mb-4">
-                <input className="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked />
-                <label className="form-check-label" htmlFor="form4Example4">
-                  Send me a copy of this comment
-                </label>
-              </div>
-
               <button type="submit" className="btn btn-primary btn-block mb-4">
                 Publish
               </button>
@@ -389,14 +387,44 @@ function Post() {
 
 }
 
-export default function Lesson() {
+export default function Lesson( { data } ) {
+
+	console.log( data );
+	const { node } = data.allMarkdownRemark.edges[ 0 ];
+	console.log( node );
+
 
 	return (
 		<>
 			<Navbar/>
-			<Post/>
+			<Post data={ node }/>
 			<Footer/>
 		</>
 	)
 
 }
+
+export const query = graphql`
+query GetPost {
+  allMarkdownRemark(
+    filter: {frontmatter: {index: {eq: 0}, slug: {eq: "gtk-brickout"}}}
+  ) {
+    edges {
+      node {
+        id
+        html
+        parent {
+          id
+        }
+        frontmatter {
+          author
+          index
+          slug
+          title
+          source
+        }
+      }
+    }
+  }
+}
+`
