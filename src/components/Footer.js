@@ -32,9 +32,9 @@ export default function Footer() {
 
 	return (
 
-		<footer className="text-center text-lg-start bg-light text-muted border-top pt-3 mt-5">
+		<footer className="text-center text-lg-start bg-dark text-light border-top mt-5">
 
-		  <section className="">
+		  <section className="pt-2" style={{ backgroundColor : "rgba(255, 255, 255, 0.05)" }}>
 		    <div className="container text-center text-md-start mt-5">
 
 		      <div className="row mt-3">

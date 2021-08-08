@@ -1,8 +1,16 @@
 import React from "react"
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import Sidebar from '../components/Sidebar'
 import { FaTwitter, FaFacebook, FaComments } from "react-icons/fa";
+
+function Sidebar() {
+
+	return (
+		<div>
+			This is the sidebar
+		</div>
+	)
+}
 
 function Post() {
 

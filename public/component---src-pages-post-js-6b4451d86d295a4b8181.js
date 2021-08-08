@@ -1,2 +1,0 @@
-(self.webpackChunkgatsby_starter_hello_world=self.webpackChunkgatsby_starter_hello_world||[]).push([[998],{5190:function(e,t,r){"use strict";r.r(t),r.d(t,{default:function(){return n}});var l=r(7294);function n(){return l.createElement("div",null,"This is the post page!!")}}}]);
-//# sourceMappingURL=component---src-pages-post-js-6b4451d86d295a4b8181.js.map
