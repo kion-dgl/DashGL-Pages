@@ -18,6 +18,7 @@ TUTORIAL_SOURCE.forEach ( async function( url ) {
 	if( !exists ) {
 		fs.mkdirSync( dir );
 	}
+	fs.writeFileSync( `tutorials/${slug}/manifest.json`, JSON.stringify( manifest ) );
 
 	for( let i = 0; i < manifest.lessons.length; i++ ) {
 		
