@@ -12,6 +12,7 @@ module.exports = {
 	},
 	pathPrefix: "/DashGL-Pages",
 	plugins: [
+		'gatsby-transformer-json',
 		'gatsby-plugin-image',
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',

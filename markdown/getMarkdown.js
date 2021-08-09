@@ -5,7 +5,10 @@ const https = require('https')
 
 
 const TUTORIAL_SOURCE = [
-	'/kion-dgl/DashGL-GTK-Brickout-Tutorial/master/manifest.json'
+	'/kion-dgl/DashGL-GTK-Brickout-Tutorial/master/manifest.json',
+	'/kion-dgl/DashGL-GTK-Invaders-Tutorial/master/manifest.json',
+	'/kion-dgl/DashGL-GTK-Astroids-Tutorial/master/manifest.json',
+	'/kion-dgl/DashGL-EGL-Model-Tutorial/master/manifest.json'
 ]
 
 TUTORIAL_SOURCE.forEach ( async function( url ) {
@@ -16,9 +19,11 @@ TUTORIAL_SOURCE.forEach ( async function( url ) {
 	const slug = manifest.title.toLowerCase().replace(/\s/g, '-');
 	const exists = fs.existsSync( `tutorials/${slug}` );
 	if( !exists ) {
-		fs.mkdirSync( dir );
+		fs.mkdirSync( `tutorials/${slug}` );
 	}
-	fs.writeFileSync( `tutorials/${slug}/manifest.json`, JSON.stringify( manifest ) );
+
+	manifest.slug = slug;
+	fs.writeFileSync( `tutorials/${slug}.json`, JSON.stringify( manifest ) );
 
 	for( let i = 0; i < manifest.lessons.length; i++ ) {
 		
