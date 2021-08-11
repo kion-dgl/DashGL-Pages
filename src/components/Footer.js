@@ -42,7 +42,7 @@ export default function Footer() {
 		        <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
 		          <h6 className="text-uppercase fw-bold mb-4">
-		            License - BSD0
+		            Social Icons
 		          </h6>
 		          <p>
 
@@ -57,16 +57,13 @@ export default function Footer() {
 		          Resources
 		          </h6>
 		          <p>
-		            <a href="#!" className="text-reset">Blog</a>
+		            <a href="#!" className="text-reset">Contact</a>
 		          </p>
 		          <p>
-		            <a href="#!" className="text-reset">Tutorials</a>
+		            <a href="#!" className="text-reset">Support</a>
 		          </p>
 		          <p>
-		            <a href="#!" className="text-reset">Tools</a>
-		          </p>
-		          <p>
-		            <a href="#!" className="text-reset">Format</a>
+		            <a href="#!" className="text-reset">Mascot</a>
 		          </p>
 		        </div>
 
@@ -75,16 +72,13 @@ export default function Footer() {
 		           Support
 		          </h6>
 		          <p>
-		            <a href="#!" className="text-reset">Patreon</a>
+		            <a href="#!" className="text-reset">About</a>
 		          </p>
 		          <p>
-		            <a href="#!" className="text-reset">Kofi</a>
+		            <a href="#!" className="text-reset">License</a>
 		          </p>
 		          <p>
-		            <a href="#!" className="text-reset">Crypto</a>
-		          </p>
-		          <p>
-		            <a href="#!" className="text-reset">Paypal</a>
+		            <a href="#!" className="text-reset">Contribute</a>
 		          </p>
 		        </div>
 
@@ -99,7 +93,6 @@ export default function Footer() {
 		          <p>
 		          	Twitter : @kion_dgl
 		          </p>
-		          <p>Discord : @kion</p>
 		        </div>
 
 		      </div>

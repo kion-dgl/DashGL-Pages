@@ -61,7 +61,17 @@ function getJson( path ) {
 			})
 
 			res.on('end', d => {
-				resolve( JSON.parse( str )); 
+				let manifest;
+
+				try {
+					manifest = JSON.parse( str )
+				} catch( err ) {
+					console.log( str );
+					throw new Error( "Could not parse " + path);
+					process.exit();
+				}
+
+				resolve( manifest ); 
 			})
 
 		})

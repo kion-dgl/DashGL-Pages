@@ -173,43 +173,22 @@ function Post( { data } ) {
 }
 
 export default function Lesson( { data } ) {
-
+	
+	
 	console.log( data );
+	
+	/*
 	const { node } = data.allMarkdownRemark.edges[ 0 ];
 	console.log( node );
-
+	*/
 
 	return (
 		<>
 			<Navbar/>
-			<Post data={ node }/>
+			{ /* <Post data={ node }/> */ }
 			<Footer/>
 		</>
 	)
 
 }
 
-export const query = graphql`
-query GetPost {
-  allMarkdownRemark(
-    filter: {frontmatter: {index: {eq: 0}, slug: {eq: "gtk-brickout"}}}
-  ) {
-    edges {
-      node {
-        id
-        html
-        parent {
-          id
-        }
-        frontmatter {
-          author
-          index
-          slug
-          title
-          source
-        }
-      }
-    }
-  }
-}
-`

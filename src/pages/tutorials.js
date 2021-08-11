@@ -6,22 +6,18 @@ import Footer from '../components/Footer'
 function SearchBar() {
 
 	return (
-<nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-	
-	<div className='container'>
-	<a className="navbar-brand me-2 d-none d-md-block d-lg-block">
-      All
-    </a>
-    <ul className="me-auto"></ul>
-    
-      <form className="d-flex">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      
-
-	</div>
-</nav>
+		<nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+			<div className='container'>
+				<a className="navbar-brand me-2 d-none d-md-block d-lg-block">
+					All
+				</a>
+				<ul className="me-auto"></ul>
+				<form className="d-flex">
+					<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+					<button className="btn btn-outline-success" type="submit">Search</button>
+				</form>
+			</div>
+		</nav>
 	)
 
 }
@@ -31,19 +27,21 @@ function TutorialCard( { tutorial } ) {
 	return (
 		<Link to={ `/${tutorial.slug}` }>
 			<div className="col">
-<div className="card h-100">
-<img src={ tutorial.card_image } />
-<div className="card-body">
-<h5 className="card-title"> { tutorial.title }</h5>
-<p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-</div>
-<div className="card-footer">
-<small className="text-muted">Last updated 3 mins ago</small>
-</div>
-</div>
-</div>
-</Link>
-
+				<div className="card h-100">
+					<img src={ tutorial.card_image } />
+					<div className="card-body">
+						<h5 className="card-title"> { tutorial.title } </h5>
+						<p className="card-text">
+							This card has supporting text below as a natural 
+							lead-in to additional content.
+						</p>
+					</div>
+					<div className="card-footer">
+						<small className="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+			</div>
+		</Link>
 	)
 
 }
@@ -51,7 +49,7 @@ function TutorialCard( { tutorial } ) {
 function Search( props ) {
 
 	return (
-		<>
+		<div>
 			
 			<section>
 				<SearchBar/>
@@ -139,7 +137,7 @@ function Search( props ) {
 					</div>
 				</div>
 			</section>
-		</>
+		</div>
 	)
 
 }
@@ -152,11 +150,11 @@ export default function Tutorials( { data } ) {
 	console.log(nodes);
 	
 	return (
-		<>
+		<div>
 			<Navbar/>
 			<Search nodes={ nodes }/>
 			<Footer/>
-		</>
+		</div>
 	)
 
 }
