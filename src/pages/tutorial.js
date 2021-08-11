@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from 'gatsby'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-
+import { FaTwitter, FaPhone, FaGithub, FaYoutube } from "react-icons/fa";
 
 
 export default function Tutorials( { data } ) {
