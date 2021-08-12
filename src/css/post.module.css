@@ -1,0 +1,76 @@
+.post {
+
+}
+
+.post img {
+
+	display: block;
+	margin: auto;
+	max-width: 100%;
+
+}
+
+.post pre {
+
+	width: calc(100% - 12px);
+	border: 1px solid #bababa;
+	border-radius: 4px;
+	background-color: #f2f2f2;
+	padding: 5px;
+
+}
+
+.post table {
+
+	margin-bottom: 1rem;
+
+}
+
+.post table thead th {
+	
+	border-bottom: 1px solid #bababa;
+	border-right: 1px solid #bababa;
+	border-top: 1px solid #bababa;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: #e5e5e5;
+	text-indent: 4px;
+	padding-right: 4px;
+	
+}
+
+.post table thead tr th:first-child {
+	
+	border-left: 1px solid #bababa;
+	
+}
+
+.post table tbody td {
+	
+	border-bottom: 1px solid #bababa;
+	border-right: 1px solid #bababa;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-indent: 4px;
+	padding-right: 4px;
+	
+}
+
+.post table tbody tr:nth-child(odd) td {
+	
+	background-color: #f2f2f2;
+	
+}	
+
+.post table tbody tr:nth-child(even) td {
+	
+	background-color: #e5e5e5;
+
+}
+
+
+.post table tbody tr td:first-child {
+	
+	border-left: 1px solid #bababa;
+	
+}

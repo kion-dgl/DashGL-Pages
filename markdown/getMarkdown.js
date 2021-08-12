@@ -27,15 +27,17 @@ TUTORIAL_SOURCE.forEach ( async function( url ) {
 
 	for( let i = 0; i < manifest.lessons.length; i++ ) {
 		
-		let lesson = manifest.lessons[ i ];
-		lesson.index = i.toString().padStart( 2, '0' );
+		const lesson = manifest.lessons[ i ];
+		lesson.index = i;
 		lesson.author = manifest.nickname || manifest.author;
 		lesson.support = manifest.support;
 		lesson.social = manifest.social;
 		lesson.slug = slug;
+		lesson.length = manifest.lessons.length;
 
 		const markdown = await getMarkdown( lesson );
-		fs.writeFileSync( `tutorials/${slug}/${lesson.index}.md`, markdown );
+		const num = i.toString().padStart( 2, '0' );
+		fs.writeFileSync( `tutorials/${slug}/${num}.md`, markdown );
 
 	}
 
@@ -104,8 +106,9 @@ function getMarkdown( lesson ) {
 			'title : ' + lesson.title,
 			'slug : ' + lesson.slug,
 			'source : ' + lesson.source,
+			'length : ' + lesson.length,
 			'---'
-		].join('\n');
+		]
 
 		const req = https.request(options, res => {
 			
@@ -116,7 +119,12 @@ function getMarkdown( lesson ) {
 			})
 
 			res.on('end', d => {
-				resolve( meta + '\n' + str ); 
+				const lines = str.split('\n');
+				if( lines[0].indexOf('# ') !== -1) {
+					lines.shift();
+				}
+
+				resolve( meta.join('\n') +  lines.join('\n') ); 
 			})
 
 		})

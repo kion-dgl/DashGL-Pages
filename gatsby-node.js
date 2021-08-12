@@ -16,7 +16,7 @@ exports.createPages = async function( { graphql, actions } ) {
 		
 		actions.createPage({
 			path : `/${node.slug}`,
-			component : path.resolve('./src/pages/tutorial.js'),
+			component : path.resolve('./src/templates/tutorial.js'),
 			context : { slug : node.slug }
 		});
 		

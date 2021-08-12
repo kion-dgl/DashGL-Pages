@@ -1,8 +1,10 @@
 import React from "react"
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { FaTwitter, FaFacebook, FaComments } from "react-icons/fa";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import * as tocStyles from "../css/toc.module.css"
+import * as postStyles from "../css/post.module.css"
 
 function Sidebar() {
 
@@ -27,168 +29,125 @@ function Sidebar() {
 		"Break Some Bricks"
 	]
 
+	const slug = 'gtk-brickout';
+	const lesson = 1;
+
 	return (
-		<div className="col-md-3 mb-4">
-			<section>
-				<ol className="list-group list-group-numbered">
-		  		{TableOfContents.map( (lesson, index) => {
-					if(index !== 3) {
-						return <li key={lesson} className="list-group-item">{ lesson }</li>
-					} else {
-						return <li key={lesson} className="list-group-item active">{ lesson }</li>
-					}
-				})}
-				</ol>
-			</section>
-		</div>
+		<section className="col-md-3 mb-4">
+		
+			<h4 style={{ paddingLeft : '2rem' }}>GTK Brickout</h4>
+			
+			<ul className={tocStyles.toc}>
+		  	{TableOfContents.map( (lesson, index) => {
+				if(index !== 3) {
+					return <li key={lesson}>{ lesson }</li>
+				} else {
+					return <li key={lesson} className={tocStyles.active}>{ lesson }</li>
+				}
+			})}
+			</ul>
+		</section>
 	)
 
 }
 
 
-function Post( { data } ) {
+function Post( { node } ) {
 
-	console.log( data.html );
+	console.log( node );
 
 	return (
-  <main className="mt-4 mb-5">
-    <div className="container">
-      <div className="row flex-row-reverse">
-        <div className="col-md-8 mb-4">
-          <section className="border-bottom mb-4">
-            <img src="https://gtk.dashgl.com/img/bricks_003.png"
-              className="img-fluid shadow-2-strong rounded-5 mb-4" alt="" />
+		<div className="col-md-8 mb-4">
 
-            <div className="row align-items-center mb-4">
-              <div className="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
-                <img src="https://avatars.githubusercontent.com/u/25621780?v=4" className="rounded-circle shadow-1-strong me-2"
-                  height="35" alt="" loading="lazy" />
-                <span> Published <u>Sept.  24, 2017</u> by</span>
-                <a href="https://github.com/kion-dgl" className="text-dark">Kion</a>
-              </div>
+			<section className="py-4">
+				<h1 className="border-bottom py-2 mb-3"> { node.frontmatter.index }. { node.frontmatter.title } </h1>
+	
+				<div className="row align-items-center mb-4">
+				    <div className="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
+				        <img src="https://avatars.githubusercontent.com/u/25621780?v=4" className="rounded-circle shadow-1-strong me-2" height="35" alt="" loading="lazy" />
+				        <span> Created on Sept. 24, 2017 by Kion</span>
+				    </div>
 
-              <div className="col-lg-6 text-center text-lg-end">
-                <button type="button" className="btn btn-primary px-3 me-1" style={{ backgroundColor: "#3b5998"}}>
-                  <FaFacebook/>
-                </button>
-                <button type="button" className="btn btn-primary px-3 me-1" style={{ backgroundColor: "#3b5998"}}>
-                  <FaTwitter/>
-                </button>
-                <button type="button" className="btn btn-primary px-3 me-1">
-                  <FaComments/>
-                </button>
-              </div>
-            </div>
-          </section>
+				    <div className="col-lg-6 text-center text-lg-end">
+				        <a href={ node.frontmatter.source } target="_blank">View Source on Github</a>
+				    </div>
+				</div>
+			</section>
+
+			<div className={postStyles.post} dangerouslySetInnerHTML={{ __html : node.html }} />
 			
-			<section>Before Post Content</section>
-			<div dangerouslySetInnerHTML={{ __html : data.html }} />
-			<section>After Post Content</section>
-
-          <section className="border-bottom border-top pt-3 mb-3">
-            <p className="text-center"><strong>Comments: 3</strong></p>
-
-            <div className="row mb-4">
-              <div className="col-2">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(24).jpg"
-                  className="img-fluid shadow-1-strong rounded-5" alt="" />
-              </div>
-
-              <div className="col-10">
-                <p className="mb-2"><strong>Marta Dolores</strong></p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est ab iure
-                  inventore dolorum consectetur? Molestiae aperiam atque quasi consequatur aut?
-                  Repellendus alias dolor ad nam, soluta distinctio quis accusantium!
-                </p>
-              </div>
-            </div>
-
-            <div className="row mb-4">
-              <div className="col-2">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(25).jpg"
-                  className="img-fluid shadow-1-strong rounded-5" alt="" />
-              </div>
-
-              <div className="col-10">
-                <p className="mb-2"><strong>Valeria Groove</strong></p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est ab iure
-                  inventore dolorum consectetur? Molestiae aperiam atque quasi consequatur aut?
-                  Repellendus alias dolor ad nam, soluta distinctio quis accusantium!
-                </p>
-              </div>
-            </div>
-
-            <div className="row mb-4">
-              <div className="col-2">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg"
-                  className="img-fluid shadow-1-strong rounded-5" alt="" />
-              </div>
-
-              <div className="col-10">
-                <p className="mb-2"><strong>Antonia Velez</strong></p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est ab iure
-                  inventore dolorum consectetur? Molestiae aperiam atque quasi consequatur aut?
-                  Repellendus alias dolor ad nam, soluta distinctio quis accusantium!
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <p className="text-center"><strong>Leave a reply</strong></p>
-
-            <form>
-              <div className="form-outline mb-4">
-                <input type="text" id="form4Example1" className="form-control" />
-                <label className="form-label" htmlFor="form4Example1">Name</label>
-              </div>
-
-              <div className="form-outline mb-4">
-                <input type="email" id="form4Example2" className="form-control" />
-                <label className="form-label" htmlFor="form4Example2">Email address</label>
-              </div>
-
-              <div className="form-outline mb-4">
-                <textarea className="form-control" id="form4Example3" rows="4"></textarea>
-                <label className="form-label" htmlFor="form4Example3">Text</label>
-              </div>
-
-              <button type="submit" className="btn btn-primary btn-block mb-4">
-                Publish
-              </button>
-            </form>
-          </section>
-        </div>
-
-        <Sidebar/>
-
-      </div>
-    </div>
-  </main>
+			<div className="row pt-5">
+				<div class="col-5">
+					<button className='w-100 py-2 btn btn-outline-primary'>
+						<FaAngleLeft/> Previous Chapter
+					</button>
+				</div>
+				<div class="col-2">
+				</div>
+				<div class="col-5">
+					<button className='w-100 py-2 btn btn-primary'>
+						Next Chapter <FaAngleRight/>
+					</button>
+				</div>
+			</div>
+			
+		</div>
 	)
 
 }
 
 export default function Lesson( { data } ) {
 	
+	const node = data.allMarkdownRemark.nodes[ 0 ];
+	const contents = data.allTutorialsJson.nodes[ 0 ];
+	console.log( contents );
 	
-	console.log( data );
-	
-	/*
-	const { node } = data.allMarkdownRemark.edges[ 0 ];
-	console.log( node );
-	*/
-
 	return (
 		<>
 			<Navbar/>
-			{ /* <Post data={ node }/> */ }
+			<main className="mt-4 mb-5">
+				<div className="container">
+					<div className="row flex-row-reverse">
+						<Post node={ node }/>
+						<Sidebar contents={ contents }/>
+					</div>
+				</div>
+			</main>
 			<Footer/>
 		</>
 	)
 
 }
 
+export const query = graphql`
+query GetLesson {
+
+  allMarkdownRemark(
+    filter: {frontmatter: {slug: {eq: "gtk-brickout"}, index: {eq: 1}}}
+  ) {
+    nodes {
+      frontmatter {
+        length
+        author
+        slug
+        source
+        title
+        index
+      }
+      html
+    }
+  }
+
+  allTutorialsJson(
+    filter: {slug: {eq: "gtk-brickout"}}
+    sort: {order: ASC, fields: lessons___index}
+  ) {
+    nodes {
+      lessons {
+        index
+        title
+      }
+    }
+  }
+}
+`

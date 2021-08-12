@@ -1,0 +1,32 @@
+.toc {
+
+	
+
+}
+
+.toc li {
+
+	font-size: 1.2em;
+	border-left: 4px solid transparent;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	list-style: none;
+	text-indent: 1rem;
+	margin-bottom: 5px;
+	
+}
+
+.toc li:hover {
+
+	cursor: pointer;
+	border-color: #bababa;
+
+}
+
+.active {
+	
+	border-color: #663399 !important;
+	color: #663399;
+	font-weight: bold;
+	
+}

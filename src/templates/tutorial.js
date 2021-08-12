@@ -114,8 +114,8 @@ function Sidebar( { tutorial } ) {
 
 
 export const query = graphql`
-query GetTutorial {
-  allTutorialsJson(filter: {slug: {eq: "gtk-astroids"}}) {
+query GetTutorial( $slug : String ) {
+  allTutorialsJson(filter: {slug: {eq: $slug}}) {
     nodes {
       id
       title
