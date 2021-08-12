@@ -6,7 +6,9 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import * as tocStyles from "../css/toc.module.css"
 import * as postStyles from "../css/post.module.css"
 
-function Sidebar() {
+function Sidebar( { contents, node } ) {
+
+	console.log( contents );
 
 	const TableOfContents = [
 		"Introduction",
@@ -35,15 +37,18 @@ function Sidebar() {
 	return (
 		<section className="col-md-3 mb-4">
 		
-			<h4 style={{ paddingLeft : '2rem' }}>GTK Brickout</h4>
+			<h4 style={{ paddingLeft : '2rem' }}>{ node.frontmatter.slug }</h4>
 			
 			<ul className={tocStyles.toc}>
-		  	{TableOfContents.map( (lesson, index) => {
-				if(index !== 3) {
-					return <li key={lesson}>{ lesson }</li>
-				} else {
-					return <li key={lesson} className={tocStyles.active}>{ lesson }</li>
-				}
+		  	{contents.lessons.map( (lesson, index) => {
+		  		const num = index.toString().padStart(2, '0');
+		  		const url = `/${node.frontmatter.slug}/${num}/`;
+		  		
+		  		return (
+		  			<Link to={ url } key={ url }>
+		  				<li>{ lesson.title }</li>
+		  			</Link>
+		  		)
 			})}
 			</ul>
 		</section>
@@ -76,17 +81,16 @@ function Post( { node } ) {
 
 			<div className={postStyles.post} dangerouslySetInnerHTML={{ __html : node.html }} />
 			
-			<div className="row pt-5">
-				<div class="col-5">
-					<button className='w-100 py-2 btn btn-outline-primary'>
-						<FaAngleLeft/> Previous Chapter
+			<div className="row pt-5 flex-row-reverse justify-content-between">
+			
+				<div class="col-sm-7 col-md-4">
+					<button className='w-100 mb-2 py-2 btn btn-outline-primary rounded-pill'>
+						Next Chapter <FaAngleRight/>
 					</button>
 				</div>
-				<div class="col-2">
-				</div>
-				<div class="col-5">
-					<button className='w-100 py-2 btn btn-primary'>
-						Next Chapter <FaAngleRight/>
+				<div class="col-sm-7 col-md-4">
+					<button className='w-100 mb-2 py-2 btn btn-outline-primary rounded-pill'>
+						<FaAngleLeft/> Previous Chapter
 					</button>
 				</div>
 			</div>
@@ -109,7 +113,7 @@ export default function Lesson( { data } ) {
 				<div className="container">
 					<div className="row flex-row-reverse">
 						<Post node={ node }/>
-						<Sidebar contents={ contents }/>
+						<Sidebar node={ node } contents={ contents }/>
 					</div>
 				</div>
 			</main>
